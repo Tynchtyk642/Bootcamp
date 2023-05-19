@@ -2,7 +2,7 @@
 locals {
   name = "aws"
 
-  subnet_cidr_block = "10.0.4.0/24"
+  subnet_cidr_block = "10.0.5.0/24"
   instance_type     = "t3.micro"
 }
 
@@ -14,7 +14,7 @@ resource "aws_vpc" "vpc" {
     Name = "${local.name}-vpc"
   }
   lifecycle {
-    prevent_destroy = true
+    # prevent_destroy = true
   }
 }
 
@@ -28,7 +28,7 @@ resource "aws_subnet" "public" {
   }
 
   lifecycle {
-    prevent_destroy       = true
+    # prevent_destroy       = true
     create_before_destroy = true
   }
 }
@@ -43,7 +43,7 @@ resource "aws_instance" "aws" {
   }
 
   lifecycle {
-    prevent_destroy       = true
+    # prevent_destroy       = true
     create_before_destroy = true
   }
 }
