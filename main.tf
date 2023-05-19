@@ -47,3 +47,8 @@ resource "aws_instance" "aws" {
     create_before_destroy = true
   }
 }
+
+resource "aws_instance" "one_more_instance" {
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = local.instance_type
+}
