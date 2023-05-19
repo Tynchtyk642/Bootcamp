@@ -3,6 +3,7 @@ locals {
   name = "aws"
 
   subnet_cidr_block = "10.0.4.0/24"
+  instance_type     = "t3.micro"
 }
 
 
@@ -35,7 +36,7 @@ resource "aws_subnet" "public" {
 
 resource "aws_instance" "aws" {
   ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t2.medium"
+  instance_type = local.instance_type
 
   tags = {
     Name = local.name
